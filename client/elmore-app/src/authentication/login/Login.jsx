@@ -6,9 +6,11 @@ import {
   Input,
   Checkbox,
   IconButton,
+  Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 export default function Login() {
+  const year = new Date().getFullYear();
   return (
     <>
       <Helmet>
@@ -23,7 +25,12 @@ export default function Login() {
               <div>
                 <span>Don&#x27;t have an account?</span>{" "}
                 <span>
-                  <Link className="text-blue-500 hover:underline focus:underline">Sign up</Link>
+                  <Link
+                    to="/auth/register"
+                    className="text-blue-500 hover:underline focus:underline"
+                  >
+                    Sign up
+                  </Link>
                 </span>
               </div>
             </div>
@@ -51,7 +58,7 @@ export default function Login() {
                   Forgot password
                 </Link>
               </div>
-              <div className="text-center">
+              <div className="text-center mb-3">
                 <div className="mb-2">Or continue with</div>
                 <div className="flex flex-row justify-center items-center gap-4">
                   <IconButton className="rounded bg-[#ea4335] hover:shadow-[#ea4335]/20 focus:shadow-[#ea4335]/20 active:shadow-[#ea4335]/10">
@@ -65,6 +72,9 @@ export default function Login() {
                   </IconButton>
                 </div>
               </div>
+              <Typography className="text-center font-normal text-gray-600 text-xs">
+                &copy; {year} Elmore plus. All Rights Reserved.
+              </Typography>
             </div>
           </CardBody>
         </Card>

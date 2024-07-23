@@ -3,7 +3,9 @@ import Logo from "../../components/logos/Logo";
 import { Button } from "@material-tailwind/react";
 import WelcomeFooter from "../../components/footer/WelcomeFooter";
 import BGImg from "../../assets/images/backgrounds/The_elmore_wallpaper.webp";
+import { useNavigate } from "react-router-dom";
 export default function WelcomePage() {
+  const navigate = useNavigate();
   return (
     <>
       <Helmet>
@@ -19,8 +21,22 @@ export default function WelcomePage() {
           </div>
           <div className="w-1/2"></div>
           <div className="w-1/4 flex justify-center items-center gap-5">
-            <Button className="fredoka-font">Login</Button>
-            <Button className="fredoka-font">Register</Button>
+            <Button
+              className="fredoka-font"
+              onClick={() => {
+                navigate("/auth/login");
+              }}
+            >
+              Login
+            </Button>
+            <Button
+              className="fredoka-font"
+              onClick={() => {
+                navigate("/auth/register");
+              }}
+            >
+              Register
+            </Button>
           </div>
         </div>
         <div className="absolute top-1/3 right-1/2 translate-x-1/2 -translate-y-[100px] text-center fredoka-font">
