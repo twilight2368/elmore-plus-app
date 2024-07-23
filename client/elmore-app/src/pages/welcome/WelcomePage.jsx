@@ -11,7 +11,7 @@ export default function WelcomePage() {
       </Helmet>
       <div className="min-h-screen w-full text-white relative select-none">
         <div className="relative top-0 w-full h-full">
-          <img src={BGImg} alt="" />
+          <img src={BGImg} alt="" className="w-full" />
         </div>
         <div className="absolute top-0 h-24 w-full flex flex-row  p-3">
           <div className=" w-1/4">
