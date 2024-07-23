@@ -15,7 +15,7 @@ export default function WelcomePage() {
         <div className="relative top-0 w-full h-full">
           <img src={BGImg} alt="" className="w-full" />
         </div>
-        <div className="absolute top-0 h-24 w-full flex flex-row  p-3">
+        <div className="absolute top-0 h-24 w-full flex flex-row  p-3 ">
           <div className=" w-1/4">
             <Logo />
           </div>

@@ -14,7 +14,7 @@ export default function Login() {
   return (
     <>
       <Helmet>
-        <title>Login</title>
+        <title>Login - Elmore Plus</title>
       </Helmet>
 
       <div className="h-full flex justify-center items-center">

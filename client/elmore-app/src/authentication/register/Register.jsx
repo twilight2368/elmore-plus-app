@@ -13,7 +13,9 @@ export default function Register() {
   const year = new Date().getFullYear();
   return (
     <>
-      <Helmet>Register</Helmet>
+      <Helmet>
+        <title>Register - Elmore Plus</title>
+      </Helmet>
       <div className="h-full flex justify-center items-center">
         <Card className=" w-1/2 h-4/5 p-8">
           <CardBody className=" h-full w-full p-0">
@@ -81,7 +83,7 @@ export default function Register() {
                   </IconButton>
                 </div>
               </div>
-              <Typography  className="text-center font-normal text-gray-600 text-xs">
+              <Typography className="text-center font-normal text-gray-600 text-xs">
                 &copy; {year} Elmore plus. All Rights Reserved.
               </Typography>
             </div>
