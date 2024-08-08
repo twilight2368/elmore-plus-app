@@ -1,5 +1,6 @@
 const allowedLists = [
-  'http://localhost:5173'
+  'http://localhost:3000',
+  'http://localhost:3000/'
 ]
 
 const corsOptions = {
@@ -9,7 +10,8 @@ const corsOptions = {
     } else {
       callback(new Error("Not allowed by CORS"))
     }
-  }
+  },
+  credentials: true,
 }
 
 module.exports = corsOptions

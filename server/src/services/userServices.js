@@ -1,8 +1,6 @@
-const getUser = async () => {
-  return {
-    userId: 1,
-    username: "Elmore Plus"
-  }
+
+const getUser = async (userId) => {
+
 }
 
 module.exports = {

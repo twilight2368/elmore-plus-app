@@ -6,16 +6,17 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   realname: {
-    type: String,
-    required: true
+    type: String
   },
   email: {
     type: String,
     required: true
   },
-  country: {
+  password: {
     type: String,
-    required: true
+  },
+  country: {
+    type: String
   },
   avatarLink: {
     type: String,
@@ -25,8 +26,7 @@ const userSchema = new mongoose.Schema({
     {
       userId: {
         type: mongoose.Schema.ObjectId,
-        ref: 'user',
-        required: true 
+        ref: 'user'
       }
     }
   ],

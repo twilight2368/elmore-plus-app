@@ -7,6 +7,7 @@ const cors = require('cors')
 
 const corsOptions = require('./configs/cors')
 const ENV = require('./configs/configs')
+const errorHandler = require('./middlewares/errorHandler')
 const Database = require('./models')
 
 const startApp = () => {
@@ -25,7 +26,8 @@ const startApp = () => {
   Database.countConnections()
   Database.checkOverload()
 
-  app.use('/', require('./routes'))
+  app.use('/api', require('./routes'))
+  app.use(errorHandler)
 
   app.listen(PORT, HOST, () => {
     console.log(`Server started on http://${HOST}:${PORT}`)
