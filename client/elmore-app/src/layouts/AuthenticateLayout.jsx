@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import LogoImg from "../assets/images/logo/1-PhotoRoom.png-PhotoRoom.png";
 import { Button } from "@material-tailwind/react";
 
-export default function AuthenticateLayouts() {
+export default function AuthenticateLayout() {
   const navigate = useNavigate();
   return (
     <>

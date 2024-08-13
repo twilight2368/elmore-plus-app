@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import WelcomePage from "./pages/welcome/WelcomePage";
 import AuthenRoutes from "./routes/AuthenRoutes";
 import NotFound from "./pages/notfound/NotFound";
+import MainRoutes from "./routes/MainRoutes";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/auth/*" element={<AuthenRoutes />} />
+        <Route path="/*" element={<MainRoutes />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
