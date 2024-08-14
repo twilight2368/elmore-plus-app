@@ -1,13 +1,22 @@
-import { faBell, faHashtag, faHome, faUser, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faGears,
+  faHashtag,
+  faHome,
+  faUser,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { List, ListItem } from "@material-tailwind/react";
+import { Button, List, ListItem } from "@material-tailwind/react";
 import { useState } from "react";
+import MainFooter from "../footer/MainFooter";
+import "../../css/CustomOne.css";
 
 export default function MainSidebar() {
   const [selected, setSelected] = useState(1);
   const setSelectedItem = (value) => setSelected(value);
   return (
-    <div className="overflow-auto pl-12 pr-8 py-4">
+    <div className="relative pl-12 pr-8 py-4 custom-height">
       <div id="list-main-menu" className=" text-black ">
         <List className=" flex flex-col gap-5">
           <ListItem
@@ -47,12 +56,24 @@ export default function MainSidebar() {
             onClick={() => setSelectedItem(5)}
             className="flex flex-row gap-2 items-stretch"
           >
-            <FontAwesomeIcon
-              icon={faUser}
-            />
+            <FontAwesomeIcon icon={faUser} />
             <span>Profile</span>
           </ListItem>
+          <ListItem
+            selected={selected === 6}
+            onClick={() => setSelectedItem(6)}
+            className="flex flex-row gap-2 items-stretch"
+          >
+            <FontAwesomeIcon icon={faGears} />
+            <span>Settings</span>
+          </ListItem>
         </List>
+      </div>
+      <div className="flex justify-center items-center mt-10">
+        <Button>Make a post</Button>
+      </div>
+      <div className=" absolute bottom-0">
+        <MainFooter />
       </div>
     </div>
   );

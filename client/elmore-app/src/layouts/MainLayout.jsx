@@ -6,9 +6,9 @@ export default function MainLayout() {
   return (
     <>
       {/**Navbar on top here */}
-      <div className=" relative h-screen overflow-auto">
+      <div className=" relative h-screen overflow-auto custom-scroll  ">
         <div className="fixed top-0 z-50 w-full h-16"><HomeNavbar/></div>
-        <div className="h-screen">
+        <div id="content-main">
           <Outlet />
         </div>
       </div>
