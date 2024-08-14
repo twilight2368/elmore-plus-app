@@ -1,12 +1,20 @@
-import { Avatar, Button, Card, CardBody } from "@material-tailwind/react";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  IconButton,
+} from "@material-tailwind/react";
 import PropTypes from "prop-types";
 import { Carousel } from "@material-tailwind/react";
-export default function MainPost({
-  isHavingVideo,
-  isHavingImage,
-  isMultipleFiles,
-  isHavingFiles,
-}) {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faMessage,
+  faShare,
+
+} from "@fortawesome/free-solid-svg-icons";
+export default function MainPost() {
   return (
     <>
       <Card className="w-full">
@@ -20,19 +28,14 @@ export default function MainPost({
           <div className="w-full mb-6">
             <FileContent />
           </div>
+          <div className="w-full mb-0">
+            <IconToolDisplay />
+          </div>
         </CardBody>
       </Card>
     </>
   );
 }
-
-//? Use for testing only with real data will have to handle differently
-MainPost.propTypes = {
-  isHavingVideo: PropTypes.bool.isRequired,
-  isHavingImage: PropTypes.bool.isRequired,
-  isMultipleFiles: PropTypes.bool.isRequired,
-  isHavingFiles: PropTypes.bool.isRequired,
-};
 
 function HeaderPost() {
   return (
@@ -58,7 +61,7 @@ function HeaderPost() {
   );
 }
 
-function PostTextContent(params) {
+function PostTextContent() {
   return (
     <div className=" w-full">
       <p className="text-sm w-full line-clamp-6 ">
@@ -77,7 +80,12 @@ function PostTextContent(params) {
   );
 }
 
-function FileContent(params) {
+function FileContent({
+  isHavingVideo,
+  isHavingImage,
+  isMultipleFiles,
+  isHavingFiles,
+}) {
   return (
     <>
       <div className="w-full h-96">
@@ -109,6 +117,50 @@ function FileContent(params) {
             className="h-full w-full object-cover"
           />
         </Carousel>
+      </div>
+    </>
+  );
+}
+
+//? Use for testing only with real data will have to handle differently
+FileContent.propTypes = {
+  isHavingVideo: PropTypes.bool.isRequired,
+  isHavingImage: PropTypes.bool.isRequired,
+  isMultipleFiles: PropTypes.bool.isRequired,
+  isHavingFiles: PropTypes.bool.isRequired,
+};
+
+function IconToolDisplay() {
+  return (
+    <>
+      <div className=" flex flex-row justify-between items-center px-2">
+        <div>
+          <Button
+            color="red"
+            variant="text"
+            size="sm"
+            className="text-black hover:text-red-500 mr-2"
+          >
+            <span className="flex items-center gap-1">
+              <FontAwesomeIcon icon={faHeart} /> {1000}
+            </span>
+          </Button>
+          <Button
+            color="orange"
+            variant="text"
+            size="sm"
+            className="text-black hover:text-orange-500 mr-2"
+          >
+            <span className="flex items-center gap-1">
+              <FontAwesomeIcon icon={faMessage} /> {1000}
+            </span>
+          </Button>
+        </div>
+        <div>
+          <IconButton variant="text" color="blue">
+            <FontAwesomeIcon icon={faShare} />
+          </IconButton>
+        </div>
       </div>
     </>
   );
