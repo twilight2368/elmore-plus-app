@@ -16,7 +16,7 @@ export default function MainSidebar() {
   const [selected, setSelected] = useState(1);
   const setSelectedItem = (value) => setSelected(value);
   return (
-    <div className="relative pl-12 pr-8 py-4 custom-height">
+    <div className="relative pl-12 pr-8 py-4 custom-height  ">
       <div id="list-main-menu" className=" text-black ">
         <List className=" flex flex-col gap-5">
           <ListItem

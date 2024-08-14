@@ -50,3 +50,8 @@ body::-webkit-scrollbar {
   width: 0;
   display: none;
 }
+
+h2 {
+  font-family: "Fredoka Variable", sans-serif;
+  @apply text-black
+}

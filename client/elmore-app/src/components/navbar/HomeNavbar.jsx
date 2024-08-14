@@ -38,7 +38,7 @@ export default function HomeNavbar() {
 
   return (
     <>
-      <div className="h-full w-full border-b-[1px]  border-blue-100 flex flex-row items-center justify-between bg-white">
+      <div className="h-full w-full fredoka-font border-b-[1px]  border-blue-100 flex flex-row items-center justify-between bg-white">
         <div className="w-1/5 flex justify-center items-center">
           <LogoMain />
         </div>
