@@ -4,11 +4,16 @@ import App from "./App.jsx";
 import "./index.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import UserProvider from "./context/UserProvider.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <App />
+        <UserProvider>
+          <App />
+          <ToastContainer />
+        </UserProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
