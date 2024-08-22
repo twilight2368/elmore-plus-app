@@ -7,10 +7,11 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, List, ListItem } from "@material-tailwind/react";
+import { List, ListItem } from "@material-tailwind/react";
 import { useState } from "react";
 import MainFooter from "../footer/MainFooter";
 import "../../css/CustomOne.css";
+import MakePostDialog from "../makepost/makepostdialog/MakePostDialog";
 
 export default function MainSidebar() {
   const [selected, setSelected] = useState(1);
@@ -70,7 +71,7 @@ export default function MainSidebar() {
         </List>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <Button>Make a post</Button>
+        <MakePostDialog />
       </div>
       <div className=" absolute bottom-0">
         <MainFooter />

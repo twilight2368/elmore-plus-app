@@ -15,7 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/auth/*" element={<AuthenRoutes />} />
+        
         <Route path="/*" element={<MainRoutes />} />
+        <Route path="/not-found" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -8,7 +8,13 @@ import {
   faRocket,
   faSignal,
 } from "@fortawesome/free-solid-svg-icons";
-import { Input, Avatar, Typography, Badge } from "@material-tailwind/react";
+import {
+  Input,
+  Avatar,
+  Typography,
+  Badge,
+  Button,
+} from "@material-tailwind/react";
 import {
   Menu,
   MenuHandler,
@@ -18,6 +24,7 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 export default function HomeNavbar() {
+  const [openMenu, setOpenMenu] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   let location = useLocation();
@@ -122,17 +129,48 @@ export default function HomeNavbar() {
             </div>
           </div>
         </div>
-        <div className="w-16 flex justify-center items-center ">
+        <div className="w-16 flex justify-center items-center">
           <Menu placement="bottom-end">
             <MenuHandler>
               <IconButton variant="text" className="p-0">
                 <FontAwesomeIcon icon={faBars} size="big" />
               </IconButton>
             </MenuHandler>
-            <MenuList>
-              <MenuItem>Menu Item 1</MenuItem>
-              <MenuItem>Menu Item 2</MenuItem>
-              <MenuItem>Menu Item 3</MenuItem>
+            <MenuList className="flex flex-col gap-2">
+              <MenuItem className="px-3 py-2x">
+                Your Information
+              </MenuItem>
+              <Menu
+                placement="left-start"
+                open={openMenu}
+                handler={setOpenMenu}
+                allowHover
+                offset={15}
+              >
+                <MenuHandler className="flex items-center justify-between">
+                  <MenuItem className="px-3 py-2">
+                    Theme preference
+                  </MenuItem>
+                </MenuHandler>
+                <MenuList>
+                  <MenuItem className="px-3 py-2 text-xs">
+                    <span>Light</span>
+                  </MenuItem>
+                  <MenuItem className="px-3 py-2 text-xs">
+                    <span>Dark</span>
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+              <MenuItem className="px-3 py-2 ">Settings</MenuItem>
+              <MenuItem className="px-3 py-2 ">Help</MenuItem>
+              <Button
+                color="red"
+                variant="text"
+                size="sm"
+                className=" text-start capitalize px-3 py-2"
+              >
+                Log out
+              </Button>
             </MenuList>
           </Menu>
         </div>
@@ -140,49 +178,3 @@ export default function HomeNavbar() {
     </>
   );
 }
-
-/**
- * <div className=" w-2/12 h-full flex items-center">
-          <Button
-            variant="text"
-            className="px-4 py-2 text-black"
-            onClick={() => {
-              navigate("/home");
-            }}
-          >
-            <NavLink
-              to="/home"
-              className={({ isActive }) =>
-                isActive
-                  ? " text-blue-300 flex flex-row items-baseline  gap-1"
-                  : " flex items-baseline gap-1"
-              }
-            >
-              <FontAwesomeIcon icon={faHouse} />
-              <span>Home</span>
-            </NavLink>
-          </Button>
-
-          <Badge invisible={!showBadge}>
-            <Button
-              variant="text"
-              className="px-4 py-2 text-black"
-              onClick={() => {
-                navigate("/chat");
-              }}
-            >
-              <NavLink
-                to="/chat"
-                className={({ isActive }) => {
-                  return isActive
-                    ? " text-blue-300 flex items-baseline gap-1"
-                    : " flex items-baseline gap-1";
-                }}
-              >
-                <FontAwesomeIcon icon={faComments} />
-                <span>Chat</span>
-              </NavLink>
-            </Button>
-          </Badge>
-        </div>
- */

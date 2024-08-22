@@ -1,6 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import MainContent from "../components/main/MainContent";
 import HomePage from "../pages/home/HomePage";
 
 export default function MainRoutes() {
@@ -9,7 +8,10 @@ export default function MainRoutes() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="home" element={<HomePage />} />
-          <Route path="*" element={<></>} />
+          <Route path="chat" element={<></>} />
+          <Route path="notification" element={<></>} />
+          <Route path="friends" element={<></>} />
+          <Route path="*" element={<Navigate to="/not-found" replace />} />
         </Route>
       </Routes>
     </>
