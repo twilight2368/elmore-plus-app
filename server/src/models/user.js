@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  dateOfBirth: {
+    type: Date,
+  },
   country: {
     type: String
   },
@@ -22,11 +25,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  friends: [
+  friendList: [
     {
       userId: {
         type: mongoose.Schema.ObjectId,
         ref: 'user'
+      },
+      username: {
+        type: String
+      },
+      avatarLink: {
+        type: String
       }
     }
   ],
@@ -38,7 +47,7 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.Array,
     default: []
   },
-  lastLogined: { 
+  lastLogin: { 
     type: Date
   },
   isActive: {

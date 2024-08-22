@@ -10,6 +10,9 @@ const friendRequestSchema = new mongoose.Schema({
     userId: {
       type: mongoose.Schema.ObjectId,
       ref: 'user',
+    },
+    addTimestamp: {
+      type: Date,
     }
   }],
   from: [{

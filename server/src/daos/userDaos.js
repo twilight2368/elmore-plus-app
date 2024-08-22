@@ -6,7 +6,7 @@ const findOneUser = async (filter) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in findOneUser")
     })
 }
 
@@ -15,7 +15,7 @@ const findManyUsers = async (filter) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in findManyUsers")
     })
 }
 
@@ -24,7 +24,7 @@ const createNewUser = async (userDocument) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in createNewUser")
     })
 }
 
@@ -33,7 +33,7 @@ const updateUserById = async (userId, updateData) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in updateUserById")
     })
 }
 
@@ -42,7 +42,7 @@ const updateUser = async (filter, updateData) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in updateUser")
     })
 }
 

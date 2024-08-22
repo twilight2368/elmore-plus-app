@@ -1,5 +1,11 @@
+const { BadRequestError } = require("../errors/customError")
 
-const getUser = async (userId) => {
+const updateUserProfile = async (userId, updateData) => {
+  const { email } = updateData
+  if (email) {
+    throw new BadRequestError("Email is not allowed to be updated!")
+  }
+
 
 }
 
