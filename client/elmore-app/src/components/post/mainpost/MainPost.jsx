@@ -146,10 +146,10 @@ function IconToolDisplay() {
             </span>
           </Button>
           <Button
-            color="orange"
+            color="blue"
             variant="text"
             size="sm"
-            className="text-black hover:text-orange-500 mr-2"
+            className="text-black hover:text-blue-400  mr-2"
           >
             <span className="flex items-center gap-1">
               <FontAwesomeIcon icon={faMessage} /> {1000}
@@ -157,8 +157,8 @@ function IconToolDisplay() {
           </Button>
         </div>
         <div>
-          <IconButton variant="text" color="blue">
-            <FontAwesomeIcon icon={faShare} />
+          <IconButton variant="text" color="gray">
+            <FontAwesomeIcon icon={faShare} className="text-black" />
           </IconButton>
         </div>
       </div>
