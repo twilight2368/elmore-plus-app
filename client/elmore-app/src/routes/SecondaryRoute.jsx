@@ -8,6 +8,7 @@ export default function SecondaryRoute() {
       <Routes>
         <Route element={<SecondaryLayout />}>
           <Route path="home" element={<HomePage />} />
+          <Route path="explore" element={<></>} />
           <Route path="*" element={<Navigate to="/not-found" replace />} />
         </Route>
       </Routes>
