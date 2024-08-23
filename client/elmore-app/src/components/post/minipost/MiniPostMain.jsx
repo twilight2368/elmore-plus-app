@@ -5,12 +5,12 @@ import { Avatar } from "@material-tailwind/react";
 export default function MiniPostMain() {
   return (
     <div className="flex flex-col gap-2 h-24 pl-2">
-      <div className=" flex flex-row items-center gap-1 h-8">
+      <div className=" flex flex-row items-center gap-2 h-8">
         <div className="h-full">
           <Avatar
             src="https://i.pinimg.com/736x/03/51/0d/03510d20f7555048e3eb4bb4e5cfe102.jpg"
             alt="avatar"
-            className=" p-[1px] w-auto h-full "
+            className=" w-auto h-full "
           />
         </div>
         <div>
