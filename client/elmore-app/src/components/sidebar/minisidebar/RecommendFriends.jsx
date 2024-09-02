@@ -10,7 +10,9 @@ export default function RecommendFriends() {
             <h2 className=" font-bold ">People in Elmore</h2>
           </div>
           <div className=" flex flex-col gap-2 justify-center ">
-            {/** 3 items only */}
+            {/** 5 items only */}
+            <RecommendPeopleItem />
+            <RecommendPeopleItem />
             <RecommendPeopleItem />
             <RecommendPeopleItem />
             <RecommendPeopleItem />

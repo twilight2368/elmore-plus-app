@@ -26,7 +26,7 @@ export default function MakePostDialog() {
       <Button onClick={handleOpen} variant="gradient">
         Make a post
       </Button>
-      <Dialog open={open} handler={handleOpen}>
+      <Dialog open={open} handler={handleOpen} className="min-h-96 max-h-[500px] ">
         <DialogHeader className="w-full">
           <div className="w-full flex flex-row justify-between items-center">
             <div>Make news in Elmore</div>
@@ -42,12 +42,14 @@ export default function MakePostDialog() {
             </div>
           </div>
         </DialogHeader>
-        <DialogBody className=" min-h-32 max-h-60 overflow-auto custom-scroll  ">
+        <DialogBody>
           <Textarea
             resize={true}
             label="Write your story now..."
             color="gray"
+            className="h-60"
           />
+          <div className=""></div>
         </DialogBody>
         <DialogFooter className="w-full flex flex-row justify-between items-center ">
           <div className="flex justify-start gap-2 ">

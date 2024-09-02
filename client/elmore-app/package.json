@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^2.0.3",
+    "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@fontsource-variable/fredoka": "^5.0.13",
     "@fontsource-variable/montserrat": "^5.0.19",
     "@fontsource/bungee-shade": "^5.0.21",

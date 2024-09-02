@@ -15,7 +15,6 @@
   @apply h-10;
 }
 
-
 .custom-scroll::-webkit-scrollbar-thumb {
   visibility: hidden;
   @apply scroll-smooth;
@@ -53,5 +52,5 @@ body::-webkit-scrollbar {
 
 h2 {
   font-family: "Fredoka Variable", sans-serif;
-  @apply text-black
+  @apply text-black;
 }

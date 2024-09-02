@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faComments,
+  faGear,
   faHouse,
+  faIdCard,
+  faQuestionCircle,
+  faRightFromBracket,
   faRocket,
   faSignal,
 } from "@fortawesome/free-solid-svg-icons";
@@ -24,7 +28,6 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 export default function HomeNavbar() {
-  const [openMenu, setOpenMenu] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   let location = useLocation();
@@ -129,46 +132,39 @@ export default function HomeNavbar() {
             </div>
           </div>
         </div>
-        <div className="w-16 flex justify-center items-center">
+        <div className="w-16 flex justify-center items-center text-sm">
           <Menu placement="bottom-end">
             <MenuHandler>
               <IconButton variant="text" className="p-0">
                 <FontAwesomeIcon icon={faBars} size="big" />
               </IconButton>
             </MenuHandler>
-            <MenuList className="flex flex-col gap-2">
+            <MenuList className="flex flex-col gap-2 text-sm">
               <MenuItem className="px-3 py-2x">
+                <span>
+                  <FontAwesomeIcon icon={faIdCard} className="mr-2" />
+                </span>
                 Your Information
               </MenuItem>
-              <Menu
-                placement="left-start"
-                open={openMenu}
-                handler={setOpenMenu}
-                allowHover
-                offset={15}
-              >
-                <MenuHandler className="flex items-center justify-between">
-                  <MenuItem className="px-3 py-2">
-                    Theme preference
-                  </MenuItem>
-                </MenuHandler>
-                <MenuList>
-                  <MenuItem className="px-3 py-2 text-xs">
-                    <span>Light</span>
-                  </MenuItem>
-                  <MenuItem className="px-3 py-2 text-xs">
-                    <span>Dark</span>
-                  </MenuItem>
-                </MenuList>
-              </Menu>
-              <MenuItem className="px-3 py-2 ">Settings</MenuItem>
-              <MenuItem className="px-3 py-2 ">Help</MenuItem>
+              <MenuItem className="px-3 py-2 ">
+                <span>
+                  <FontAwesomeIcon icon={faGear} className="mr-2" />
+                </span>
+                Settings
+              </MenuItem>
+              <MenuItem className="px-3 py-2 ">
+                <span>
+                  <FontAwesomeIcon icon={faQuestionCircle} className="mr-2" />
+                </span>
+                Help
+              </MenuItem>
               <Button
                 color="red"
                 variant="text"
                 size="sm"
-                className=" text-start capitalize px-3 py-2"
+                className=" text-center capitalize "
               >
+                <FontAwesomeIcon icon={faRightFromBracket} className="mr-1" />
                 Log out
               </Button>
             </MenuList>
