@@ -3,7 +3,7 @@ import VideoDisplay from "../videos/VideoDisplay";
 export default function ChatAccordingVideo() {
   return (
     <>
-      <ExpansionPanel open title="Images">
+      <ExpansionPanel open title="Videos">
         <div className="grid grid-cols-2 gap-2 ">
           <VideoDisplay />
           <VideoDisplay />
