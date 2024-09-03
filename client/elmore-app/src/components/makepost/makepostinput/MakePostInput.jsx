@@ -28,7 +28,7 @@ export default function MakePostInput() {
               <div className=" flex flex-row gap-3">
                 <ImageUploadButton />
                 <VideoUploadButton />
-                <IconMenu />
+                <IconMenu placement={"bottom-center"} />
               </div>
               <div>
                 <Button

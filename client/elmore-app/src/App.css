@@ -23,6 +23,10 @@
   @apply bg-blue-300;
 }
 
+.no-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
 .fredoka-font {
   font-family: "Fredoka Variable", sans-serif;
 }

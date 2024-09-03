@@ -7,13 +7,13 @@ import {
   MenuItem,
   MenuList,
 } from "@material-tailwind/react";
-
+import PropTypes from "prop-types";
 import EmojisCompact from "emoji.json/emoji-compact.json";
 
-export default function IconMenu() {
+export default function IconMenu({ placement }) {
   return (
     <div className="h-full w-full relative">
-      <Menu placement="bottom-start">
+      <Menu placement={placement}>
         <MenuHandler>
           <IconButton variant="text">
             <FontAwesomeIcon icon={faIcons} size="lg" />
@@ -34,3 +34,7 @@ export default function IconMenu() {
     </div>
   );
 }
+
+IconMenu.propTypes = {
+  placement: PropTypes.string,
+};
