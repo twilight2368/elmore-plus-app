@@ -47,8 +47,14 @@ class UserAlreadyExistError extends BadRequestError {
   }
 }
 
-class DatabaseError extends  CustomError {
+class DatabaseError extends CustomError {
   constructor(message="Something wrong with Database", statusCode=ErrorCode.INTERNAL_SERVER_ERROR, name="DatabaseError") {
+    super(message, statusCode, name)
+  }
+}
+
+class MissingField extends CustomError {
+  constructor(message="Missing field!", statusCode=ErrorCode.BAD_REQUEST, name="MissingField") {
     super(message, statusCode, name)
   }
 }
@@ -60,5 +66,6 @@ module.exports = {
   NotFoundError,
   InternalServerError,
   DatabaseError,
-  UserAlreadyExistError
+  UserAlreadyExistError,
+  MissingField
 }

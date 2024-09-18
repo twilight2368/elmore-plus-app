@@ -19,6 +19,11 @@ const configs = {
       CLIENT_ID: process.env.CLIENT_ID,
       CLIENT_SECRET: process.env.CLIENT_SECRET,
       REDIRECT_URL: process.env.OAUTH_REDIRECT_URL,
+    },
+    CLOUDINARY: {
+      CLOUD_NAME: process.env.DEV_CLOUDINARY_CLOUD_NAME,
+      API_KEY: process.env.DEV_CLOUDINARY_API_KEY,
+      API_SECRET: process.env.DEV_CLOUDINARY_API_SECRET
     }
   },
   PRODUCTION: {

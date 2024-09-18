@@ -1,8 +1,10 @@
 const { DatabaseError } = require("../errors/customError");
 const userModel = require("../models/user");
+const getSelectData = require("../utils/getSelectData");
+const getUnselectData = require("../utils/getUnselectData");
 
 const findOneUser = async (filter) => {
-  return await userModel.findOne(filter)
+  return await userModel.findOne(filter).select(getUnselectData(['password']))
     .then(data => data)
     .catch(err => {
       console.log(err)
@@ -10,8 +12,8 @@ const findOneUser = async (filter) => {
     })
 }
 
-const findManyUsers = async (filter) => {
-  return await userModel.find(filter)
+const findManyUsers = async (filter, select) => {
+  return await userModel.find(filter).select(getSelectData(select))
     .then(data => data)
     .catch(err => {
       console.log(err)

@@ -39,14 +39,6 @@ const userSchema = new mongoose.Schema({
       }
     }
   ],
-  roomIds: {
-    type: mongoose.Schema.Types.Array,
-    default: []
-  },
-  posts: {
-    type: mongoose.Schema.Types.Array,
-    default: []
-  },
   lastLogin: { 
     type: Date
   },

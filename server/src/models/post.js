@@ -1,13 +1,30 @@
 const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'user',
-    required: true
+  user: {
+    userId: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'user',
+    },
+    username: {
+      type: String
+    },
+    avatarLink: {
+      type: String
+    }
   },
   content: {
     type: String
+  },
+  sharePost: {
+    isShare: {
+      type: Boolean,
+      default: false
+    },
+    originalPostId: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'post'
+    }
   },
   imageLink: [{
     main: {
@@ -25,18 +42,30 @@ const postSchema = new mongoose.Schema({
       type: String
     }
   }],
-  likes: {
-    type: mongoose.Schema.Types.Array,
-    default: []
+  likes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  }],
+  likeCount: {
+    type: Number,
+    default: 0
   },
-  shares: {
-    type: mongoose.Schema.Types.Array,
-    default: []
+  shares: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  }],
+  shareCount: {
+    type: Number,
+    default: 0
   },
-  comments: {
-    type: mongoose.Schema.Types.Array,
-    default: []
-  },
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'comment'
+  }],
+  commentCount: {
+    type: Number,
+    default: 0
+  }
 }, {
   timestamps: true
 })
