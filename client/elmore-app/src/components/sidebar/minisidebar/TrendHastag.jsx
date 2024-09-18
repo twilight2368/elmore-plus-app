@@ -12,7 +12,7 @@ export default function TrendingHastags() {
             <h2 className=" font-bold ">Hastags in Elmore </h2>
           </div>
           {/**5 items only  */}
-          <div className="flex flex-col gap-1">
+          <div className="pl-2 flex flex-col gap-1">
             <HastagItem hastag="hello world" numOfPost={100000} />
             <HastagItem hastag="hello world" numOfPost={100000} />
             <HastagItem hastag="hello world" numOfPost={100000} />
