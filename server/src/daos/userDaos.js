@@ -1,21 +1,23 @@
 const { DatabaseError } = require("../errors/customError");
 const userModel = require("../models/user");
+const getSelectData = require("../utils/getSelectData");
+const getUnselectData = require("../utils/getUnselectData");
 
 const findOneUser = async (filter) => {
-  return await userModel.findOne(filter)
+  return await userModel.findOne(filter).select(getUnselectData(['password']))
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in findOneUser")
     })
 }
 
-const findManyUsers = async (filter) => {
-  return await userModel.find(filter)
+const findManyUsers = async (filter, select) => {
+  return await userModel.find(filter).select(getSelectData(select))
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in findManyUsers")
     })
 }
 
@@ -24,7 +26,7 @@ const createNewUser = async (userDocument) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in createNewUser")
     })
 }
 
@@ -33,7 +35,7 @@ const updateUserById = async (userId, updateData) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in updateUserById")
     })
 }
 
@@ -42,7 +44,7 @@ const updateUser = async (filter, updateData) => {
     .then(data => data)
     .catch(err => {
       console.log(err)
-      throw new DatabaseError()
+      throw new DatabaseError("Something went wrong in updateUser")
     })
 }
 

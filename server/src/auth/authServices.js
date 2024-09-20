@@ -95,15 +95,15 @@ const refreshToken = async (refreshToken) => {
       avatarLink: foundUser.avatarLink
     }
 
-    const accessToken = authUtils.generateToken(payload, ACCESS_TOKEN_SECRET_KEY, "1h")
-    const refreshToken = authUtils.generateToken(payload, REFRESH_TOKEN_SECRET_KEY, "7d")
+    const newAccessToken = authUtils.generateToken(payload, ACCESS_TOKEN_SECRET_KEY, "1h")
+    const newRefreshToken = authUtils.generateToken(payload, REFRESH_TOKEN_SECRET_KEY, "7d")
 
     const updatedUser = await userDaos.updateUserById(foundUser._id, { isActive: true })
 
     return {
       user: updatedUser,
-      accessToken,
-      refreshToken
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
     }
   } catch (err) {
     if (err) {
@@ -150,11 +150,16 @@ const getGoogleUser = async (id_token, access_token) => {
       }
     })
     const googleuser = response.data
-    if (!googleuser.verified_email) {
-      throw new BadRequestError("User not verified!")
-    }
 
-    const user = await userDaos.updateUser({ email: googleuser.email }, { email: googleuser.email, username: googleuser.name, avatarLink: googleuser.picture })
+    const user = await userDaos.updateUser(
+      { email: googleuser.email }, 
+      { 
+        email: googleuser.email,
+        username: googleuser.name,
+        avatarLink: googleuser.picture,
+        isActive: true,
+      }
+    )
 
     const payload = {
       userId: user._id,
@@ -179,15 +184,21 @@ const getGoogleUser = async (id_token, access_token) => {
 
 const facebookAuth = async (clientAccessToken, userID) => {
   try {
-    console.log(clientAccessToken)
-    console.log(userID)
     const response = await axios.get(
       `https://graph.facebook.com/v20.0/${userID}?fields=id,name,email,picture&access_token=${clientAccessToken}`
     );
 
     const { name, email, picture } = response.data;
 
-    const user = await userDaos.updateUser({ email: email }, { email: email, username: name, avatarLink: picture.data.url });
+    const user = await userDaos.updateUser(
+      { email: email }, 
+      { 
+        email: email,
+        username: name,
+        avatarLink: picture.data.url,
+        isActive: true,
+      }
+    );
 
     const payload = {
       userId: user._id,

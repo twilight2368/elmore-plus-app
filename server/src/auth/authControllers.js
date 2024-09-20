@@ -6,12 +6,10 @@ const CLIENT_URL = ENV.CLIENT_URL
 const signin = async (req, res, next) => {
   const authenticatedData = await authServices.signin({ email: req.body.email, password: req.body.password })
   res.cookie("accessToken", authenticatedData.accessToken, {
-    maxAge: 1*60*60*1000, // 1 hour
     httpOnly: true
   })
 
   res.cookie("refreshToken", authenticatedData.refreshToken, {
-    maxAge: 7*24*60*60*1000, // 7 days
     httpOnly: true
   })
   res.status(200).json({
@@ -23,12 +21,10 @@ const signin = async (req, res, next) => {
 const signup = async (req, res, next) => {
   const authenticatedData = await authServices.signup({ email: req.body.email, password: req.body.password, username: req.body.username })
   res.cookie("accessToken", authenticatedData.accessToken, {
-    maxAge: 1*60*60*1000, // 1 hour
     httpOnly: true
   })
 
   res.cookie("refreshToken", authenticatedData.refreshToken, {
-    maxAge: 7*24*60*60*1000, // 7 days
     httpOnly: true
   })
   res.status(200).json({
@@ -42,19 +38,18 @@ const logout = async (req, res, next) => {
   res.cookie("accessToken", null)
   res.cookie("refreshToken", null)
   res.status(200).json({
-    message: "Successfully logout!"
+    message: "Successfully logout!",
+    logoutStatus,
   })
 }
 
 const refreshToken = async (req, res, next) => {
   const authenticatedData = await authServices.refreshToken({ email: req.body.email, password: req.body.password })
   res.cookie("accessToken", authenticatedData.accessToken, {
-    maxAge: 1*60*60*1000, // 1 hour
     httpOnly: true
   })
 
   res.cookie("refreshToken", authenticatedData.refreshToken, {
-    maxAge: 7*24*60*60*1000, // 7 days
     httpOnly: true
   })
   res.status(200).json({
@@ -76,12 +71,10 @@ const googleOAuthCallback = async (req, res, next) => {
     
     // Set cookies
     res.cookie("accessToken", accessToken, {
-      maxAge: 1*60*60*1000, // 1 hour
       httpOnly: true
     })
 
     res.cookie("refreshToken", refreshToken, {
-      maxAge: 7*24*60*60*1000, // 7 days
       httpOnly: true
     })
 
@@ -96,12 +89,10 @@ const googleOAuthCallback = async (req, res, next) => {
 const facebookAuth = async(req, res, next) => {
   const authenticatedData = await authServices.facebookAuth(req.body.accessToken, req.body.userID)
   res.cookie("accessToken", authenticatedData.accessToken, {
-    maxAge: 1*60*60*1000, // 1 hour
     httpOnly: true
   })
 
   res.cookie("refreshToken", authenticatedData.refreshToken, {
-    maxAge: 7*24*60*60*1000, // 7 days
     httpOnly: true
   })
   res.status(200).json({
