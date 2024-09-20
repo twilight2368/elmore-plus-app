@@ -13,7 +13,7 @@ export default function SecondaryLayout() {
 
       <div className="relative w-full flex flex-row justify-between">
         <div className=" w-1/5">{/**Nothing display here */}</div>
-        <div className=" w-4/5">
+        <div className=" w-4/5 pt-16">
           <Outlet />
         </div>
       </div>
