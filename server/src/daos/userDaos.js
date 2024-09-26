@@ -31,7 +31,7 @@ const createNewUser = async (userDocument) => {
 }
 
 const updateUserById = async (userId, updateData) => {
-  return await userModel.findByIdAndUpdate(userId, updateData, { upsert: true, new: true })
+  return await userModel.findByIdAndUpdate(userId, updateData, { upsert: true, new: true }).select(getUnselectData(['password']))
     .then(data => data)
     .catch(err => {
       console.log(err)
@@ -40,11 +40,20 @@ const updateUserById = async (userId, updateData) => {
 }
 
 const updateUser = async (filter, updateData) => {
-  return await userModel.findOneAndUpdate(filter, updateData, { upsert: true, new: true })
+  return await userModel.findOneAndUpdate(filter, updateData, { upsert: true, new: true }).select(getUnselectData(['password']))
     .then(data => data)
     .catch(err => {
       console.log(err)
       throw new DatabaseError("Something went wrong in updateUser")
+    })
+}
+
+const deleteUser = async (userId) => {
+  return await userModel.deleteOne({ _id: userId })
+    .then(data => data)
+    .catch(err => {
+      console.log(err)
+      throw new DatabaseError("Something went wrong in deleteUser")
     })
 }
 
@@ -53,7 +62,8 @@ const userDaos = {
   findManyUsers,
   createNewUser,
   updateUserById,
-  updateUser
+  updateUser,
+  deleteUser
 }
 
 module.exports = userDaos

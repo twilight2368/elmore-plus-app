@@ -9,11 +9,14 @@ const corsOptions = require('./configs/cors')
 const ENV = require('./configs/configs')
 const errorHandler = require('./middlewares/errorHandler')
 const Database = require('./models')
+const Redis = require('./configs/redisConnection')
 
 const startApp = () => {
   const app = express()
   const PORT = ENV.APP.PORT
   const HOST = ENV.APP.HOST
+
+  Redis.initRedis()
 
   app.use(cors(corsOptions))
   app.use(helmet())

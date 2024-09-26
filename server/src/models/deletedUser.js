@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const deletedUserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true
@@ -44,16 +44,17 @@ const userSchema = new mongoose.Schema({
     }
   ],
   lastLogin: { 
-    type: Date
+    type: Date,
+    default: Date.now()
   },
   isActive: {
     type: Boolean,
-    required: true
+    default: false
   },
 }, {
   timestamps: true
 })
 
-const userModel = mongoose.model('user', userSchema)
+const deletedUserModel = mongoose.model('deletedUser', deletedUserSchema)
 
-module.exports = userModel
+module.exports = deletedUserModel

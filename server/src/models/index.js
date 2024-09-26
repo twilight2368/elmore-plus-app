@@ -11,14 +11,14 @@ class Database {
 
   connectDatabase(startApp) {
     mongoose.connect(ENV.DATABASE.CONNECTION_STRING, {
-      dbName: ENV.DATABASE.NAME
+      dbName: ENV.DATABASE.NAME,
     })
     .then(() => console.log('Connected to Database successfully!'))
     .then(() => {
       startApp()
     })
     .catch((err) => {
-      console.log(err.message)
+      console.log(err)
       throw new Error("Error in connecting to Database")
     })
   }

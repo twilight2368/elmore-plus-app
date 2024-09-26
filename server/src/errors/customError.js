@@ -53,6 +53,12 @@ class DatabaseError extends CustomError {
   }
 }
 
+class RedisConnectionError extends CustomError {
+  constructor(message="Error in connecting to Redis", statusCode=ErrorCode.INTERNAL_SERVER_ERROR, name="RedisConnectionError") {
+    super(message, statusCode, name)
+  }
+}
+
 class MissingField extends CustomError {
   constructor(message="Missing field!", statusCode=ErrorCode.BAD_REQUEST, name="MissingField") {
     super(message, statusCode, name)
@@ -66,6 +72,7 @@ module.exports = {
   NotFoundError,
   InternalServerError,
   DatabaseError,
+  RedisConnectionError,
   UserAlreadyExistError,
   MissingField
 }
