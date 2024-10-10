@@ -18,9 +18,11 @@ const commentSchema = new mongoose.Schema({
   imageLink: {
     main: {
       type: String,
+      default: '',
     },
     backup: {
-      type: String
+      type: String,
+      default: '',
     }
   },
   videoLink: {
@@ -34,6 +36,10 @@ const commentSchema = new mongoose.Schema({
   likes: {
     type: mongoose.Schema.Types.Array,
     default: []
+  },
+  likeCount: {
+    type: Number,
+    default: 0
   },
   replyComments: {
     type: mongoose.Schema.Types.Array,
